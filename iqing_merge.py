@@ -16,7 +16,7 @@ for root, subdirs, files in os.walk(walk_dir):
         print('\tfile =' + oneFile)
         if oneFile.lower().endswith(".json"):
             filePath = os.path.join(root, oneFile)
-            with open(filePath, 'r') as f:
+            with open(filePath, 'r', encoding="utf-8") as f:
                 print("\t\t yes")
                 data = json.load(f, object_hook=JSONObject)
                 # print(data)
@@ -31,7 +31,7 @@ for root, subdirs, files in os.walk(walk_dir):
         else: 
             print("\t\t no")
             
-    with open(write_file, 'w') as f:
+    with open(write_file, 'w', encoding="utf-8") as f:
         f.write(final_str)
 
 
